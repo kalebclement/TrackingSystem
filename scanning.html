@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Eye</title>
+    <link rel="stylesheet" type="text/css" href="scanning.css">
+</head>
+<style>
+
+</style>
+<body>
+    <div id="navbar">
+        
+        <div id="logo">
+            <h1 class="titl">The Eyes</h1>
+        </div>
+        <div id="nav">
+            <ul>
+                <li><a href="tracking.html">Tracking</a></li>
+                <li><a href="scanning.html">Scanning</a></li>
+                <li><a href="#">List 3</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="inside"> 
+        <h2 class="one">Scanning</h2>
+        <h3 class="two">to check your package we need you to scan your barcode code </h3>
+        <h3 class="three">then input the barcode number below</h3>
+    <h3 class="four"><input id="input" type="text" placeholder="Barcode Code" size="70"></h3> 
+    <button class="five" onclick="search()"> Search </button>
+    </div>
+
+    <script>
+        var name, number, address, destination;
+        
+        function search(){
+            var barcode = document.getElementById('input').value;
+            console.log(barcode);
+
+            var request = new XMLHttpRequest();
+            request.open('GET', 'scan.php', true);
+            request.onload = function (){
+                var data = JSON.parse(this.responseText);
+                var html = " ";
+                for(var i = 0; i < data.length; i++){
+                    if(barcode == data[i].BarcodeCode){
+                        name = data[i].name;
+                        number = data[i].ReceiptNumber;
+                        address = data[i].SenderAddress;
+                        destination = data[i].Destination;
+                        console.log(name);
+                        console.log(number);
+                        console.log(address);
+                        console.log(destination);
+                    }
+                    else{
+                        alert("Sorry, Your Package isn't registered");
+                    }
+                }
+
+            }
+            request.send(); 
+
+        }
+        
+    </script>
+</body>
+
+</html>

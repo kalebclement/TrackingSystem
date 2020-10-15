@@ -1,0 +1,65 @@
+
+
+body {
+    background-color: coral;
+    margin: 0;
+    padding: 0;
+  }
+
+.titl{
+    color:rgb(42, 44, 42);
+
+    
+}
+#navbar {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 80px;
+    z-index: 999;
+    background-color: antiquewhite;
+    position: fixed;
+}
+
+#navbar #nav{
+    float: right;
+    padding-top: 15px;
+    padding-right: 100px;
+}
+li{
+    font-size: 22px;
+    list-style: none;
+    display: inline-block;
+    padding-right: 70px;
+    color: chartreuse;
+}
+li a{
+    text-decoration: none;
+    color: rgb(42, 44, 42);
+}
+li a:hover{
+    color: coral;
+}
+
+#logo{
+    float: left;
+    padding-left: 100px;
+}
+.inside{
+    padding-top: 100px;
+    
+    color: antiquewhite;
+
+}
+.one{
+    margin-inline-start: 420px;
+    font-size: 50px;
+}
+.two{
+    margin-inline-start: 370px;
+    font-size: 25px;
+}
+.three{
+    margin-inline-start: 430px;
+    font-size: 25px;
+}
